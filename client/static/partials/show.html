@@ -1,0 +1,34 @@
+<div ng-controller="showController as SC" class="container">
+   <div class="row">
+      <div class="col-md-2">
+         <a href="#/dashboard">Home</a>
+      </div>
+      <div class="col-md-4">
+         <a href="#/question/{{SC.displayQuestion._id}}/new_answer">Answer this Question</a>
+      </div>
+      <div class="col-md-4"></div>
+      <div class="col-md-2">
+         <a href="#/index">Logout</a>
+      </div>
+   </div>
+   <h1 ng-bind="SC.displayQuestion.name"></h1>
+   <h3 ng-bind="SC.displayQuestion.description"></h3>
+   <br/><br/>
+   <div ng-repeat="answer in SC.displayQuestion.answers | orderBy: '-likes'">
+      <div class="row">
+         <div class="col-md-10">
+            <p><span ng-bind="answer.user"></span>:</p>
+            <h4 ng-bind="answer.content"></h4>
+            <p ng-bind="answer.details"></p>
+         </div>
+         <div class="col-md-2">
+            <div class="input-group">
+               <input class="form-control" disabled value="{{answer.likes}} likes"/>
+               <span class="input-group-btn"><button class="btn btn-success" ng-click="SC.like(answer._id)">Like!</button></span>
+            </div>
+         </div>
+      </div>
+      <br/>
+      <hr style="border-color:black;"/>
+   </div>
+</div>

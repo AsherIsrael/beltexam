@@ -1,0 +1,25 @@
+<div ng-controller="questionsController as QC" class="container">
+   <div class="row">
+      <div class="col-md-2">
+         <a href="#/dashboard">Home</a>
+      </div>
+      <div class="col-md-8"></div>
+      <div class="col-md-2">
+         <a href="#/index">Logout</a>
+      </div>
+   </div>
+   <h1>New Question</h1>
+   <br/>
+   <span ng-show="form.question.$dirty && form.question.$invalid">Question must be at least 10 characters</span>
+   <form name="form">
+      <div class="input-group">
+         <label>Question</label>
+         <textarea class="form-control" ng-model="QC.newQuestion.name" ng-minlength="10" name="question" required></textarea>
+      </div>
+      <div class="input-group">
+         <label>Description (optional)</label>
+         <textarea class="form-control" ng-model="QC.newQuestion.description"></textarea>
+      </div>
+      <a href="#/dashboard"><button class="btn btn-warning">Cancel</button></a> <button class="btn btn-primary" ng-click="QC.create()"  ng-disabled="form.question.$invalid">Submit</button>
+   </form>
+</div>

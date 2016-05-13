@@ -1,0 +1,17 @@
+{
+  "name": "q_and_a",
+  "version": "1.0.0",
+  "description": "angular store",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.10.1",
+    "express": "^4.10.0",
+    "mongoose": "^4.0.1"
+  },
+  "author": "asher israel",
+  "license": "ISC"
+}

@@ -1,0 +1,29 @@
+<div ng-controller="answersController as AC" class="container">
+   <div class="row">
+      <div class="col-md-2">
+         <a href="#/dashboard">Home</a>
+      </div>
+      <div class="col-md-4">
+         <a href="#/questions/{{AC.displayQuestion._id}}">Go Back to Question</a>
+      </div>
+      <div class="col-md-4"></div>
+      <div class="col-md-2">
+         <a href="#/index">Logout</a>
+      </div>
+   </div>
+   <h1 ng-bind="AC.displayQuestion.name"></h1>
+   <h3 ng-bind="AC.displayQuestion.description"></h3>
+   <br/>
+   <span ng-show="form.answer.$dirty && form.answer.$invalid">Answer must be at least 5 characters</span>
+   <form name="form">
+      <div class="input-group">
+         <label>Answer</label>
+         <textarea class="form-control" ng-model="AC.newAnswer.content" ng-minlength="5" name="answer" required></textarea>
+      </div>
+      <div class="input-group">
+         <label>Description (optional)</label>
+         <textarea class="form-control" ng-model="AC.newAnswer.details"></textarea>
+      </div>
+      <a href="#/dashboard"><button class="btn btn-warning">Cancel</button></a> <button class="btn btn-primary" ng-click="AC.create()"  ng-disabled="form.answer.$invalid">Submit</button>
+   </form>
+</div>
